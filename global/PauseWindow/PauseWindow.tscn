@@ -1,0 +1,167 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://art/temp/PauseWindow/Title.png" type="Texture" id=1]
+[ext_resource path="res://art/temp/PauseWindow/close_button.png" type="Texture" id=2]
+[ext_resource path="res://art/temp/PauseWindow/QuitGame.png" type="Texture" id=3]
+[ext_resource path="res://art/temp/PauseWindow/background.png" type="Texture" id=4]
+[ext_resource path="res://art/temp/PauseWindow/ItemDetail_background.png" type="Texture" id=5]
+[ext_resource path="res://global/PauseWindow/PauseWindow.gd" type="Script" id=6]
+[ext_resource path="res://global/PauseWindow/BackPack/Backpack.gd" type="Script" id=7]
+[ext_resource path="res://art/temp/PauseWindow/NothingNow.png" type="Texture" id=8]
+[ext_resource path="res://art/temp/PauseWindow/item_touched.png" type="Texture" id=9]
+[ext_resource path="res://global/PauseWindow/BackPack/Inventory.tscn" type="PackedScene" id=10]
+[ext_resource path="res://art/temp/PauseWindow/BackpackButton.png" type="Texture" id=12]
+[ext_resource path="res://art/temp/PauseWindow/OptionButton.png" type="Texture" id=13]
+[ext_resource path="res://art/temp/PauseWindow/PlayerButton.png" type="Texture" id=14]
+[ext_resource path="res://art/temp/PauseWindow/item_selected.png" type="Texture" id=15]
+
+[node name="PauseWindow" type="Node2D"]
+position = Vector2( 640, 360 )
+z_index = 900
+script = ExtResource( 6 )
+
+[node name="PlayerInfo" type="Node2D" parent="."]
+position = Vector2( 0, 40 )
+
+[node name="Background" type="Sprite" parent="PlayerInfo"]
+scale = Vector2( 1.3, 1.2 )
+texture = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="PlayerInfo/Background"]
+texture = ExtResource( 8 )
+
+[node name="Backpack" type="Node2D" parent="."]
+position = Vector2( 0, 40 )
+script = ExtResource( 7 )
+
+[node name="Background" type="Sprite" parent="Backpack"]
+scale = Vector2( 1.3, 1.2 )
+texture = ExtResource( 4 )
+
+[node name="Title" type="Sprite" parent="Backpack/Background"]
+position = Vector2( 0, -190 )
+texture = ExtResource( 1 )
+
+[node name="InventoryList" type="Node2D" parent="Backpack"]
+
+[node name="InventoryFocused" type="Sprite" parent="Backpack/InventoryList"]
+position = Vector2( -310, -100 )
+scale = Vector2( 1.519, 1.464 )
+texture = ExtResource( 9 )
+
+[node name="InventoryChosen" type="Sprite" parent="Backpack/InventoryList"]
+position = Vector2( -430, -100 )
+scale = Vector2( 1.519, 1.464 )
+texture = ExtResource( 15 )
+
+[node name="Inventory1" parent="Backpack/InventoryList" instance=ExtResource( 10 )]
+position = Vector2( -430, -100 )
+
+[node name="Inventory2" parent="Backpack/InventoryList" instance=ExtResource( 10 )]
+position = Vector2( -310, -100 )
+
+[node name="Inventory3" parent="Backpack/InventoryList" instance=ExtResource( 10 )]
+position = Vector2( -190, -100 )
+
+[node name="Inventory4" parent="Backpack/InventoryList" instance=ExtResource( 10 )]
+position = Vector2( -70, -100 )
+
+[node name="Inventory5" parent="Backpack/InventoryList" instance=ExtResource( 10 )]
+position = Vector2( -430, 20 )
+
+[node name="Inventory6" parent="Backpack/InventoryList" instance=ExtResource( 10 )]
+position = Vector2( -310, 20 )
+
+[node name="Inventory7" parent="Backpack/InventoryList" instance=ExtResource( 10 )]
+position = Vector2( -190, 20 )
+
+[node name="Inventory8" parent="Backpack/InventoryList" instance=ExtResource( 10 )]
+position = Vector2( -70, 20 )
+
+[node name="Inventory9" parent="Backpack/InventoryList" instance=ExtResource( 10 )]
+position = Vector2( -430, 140 )
+
+[node name="Inventory10" parent="Backpack/InventoryList" instance=ExtResource( 10 )]
+position = Vector2( -310, 140 )
+
+[node name="Inventory11" parent="Backpack/InventoryList" instance=ExtResource( 10 )]
+position = Vector2( -190, 140 )
+
+[node name="Inventory12" parent="Backpack/InventoryList" instance=ExtResource( 10 )]
+position = Vector2( -70, 140 )
+
+[node name="ItemInfo" type="Node2D" parent="Backpack"]
+
+[node name="Background" type="Sprite" parent="Backpack/ItemInfo"]
+position = Vector2( 250, 20 )
+scale = Vector2( 1.3, 1.2 )
+texture = ExtResource( 5 )
+
+[node name="Options" type="Node2D" parent="."]
+position = Vector2( 0, 40 )
+
+[node name="Background" type="Sprite" parent="Options"]
+scale = Vector2( 1.3, 1.2 )
+texture = ExtResource( 4 )
+
+[node name="QuitGameButton" type="TextureButton" parent="Options"]
+margin_left = -200.0
+margin_top = -80.0
+margin_right = 256.0
+margin_bottom = 42.0
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="CloseButton" type="TextureButton" parent="Buttons"]
+margin_left = 478.973
+margin_top = -287.005
+margin_right = 529.973
+margin_bottom = -234.005
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerButton" type="TextureButton" parent="Buttons"]
+margin_left = -530.0
+margin_top = -320.0
+margin_right = -280.0
+margin_bottom = -267.0
+rect_scale = Vector2( 1.3, 1.3 )
+texture_normal = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackpackButton" type="TextureButton" parent="Buttons"]
+margin_left = -190.0
+margin_top = -320.0
+margin_right = 60.0
+margin_bottom = -267.0
+rect_scale = Vector2( 1.3, 1.3 )
+texture_normal = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="TextureButton" parent="Buttons"]
+margin_left = 150.0
+margin_top = -320.0
+margin_right = 400.0
+margin_bottom = -267.0
+rect_scale = Vector2( 1.3, 1.3 )
+texture_normal = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Options/QuitGameButton" to="." method="_on_QuitGameButton_pressed"]
+[connection signal="pressed" from="Buttons/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="Buttons/PlayerButton" to="." method="_on_PlayerButton_pressed"]
+[connection signal="pressed" from="Buttons/BackpackButton" to="." method="_on_BackpackButton_pressed"]
+[connection signal="pressed" from="Buttons/OptionButton" to="." method="_on_OptionButton_pressed"]
