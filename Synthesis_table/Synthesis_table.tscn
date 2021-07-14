@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://art/temp/Synthesis_table.png" type="Texture" id=1]
+[ext_resource path="res://Synthesis_table/Synthesis_table.gd" type="Script" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 80, 79 )
+
+[node name="Synthesis_table" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[connection signal="body_shape_entered" from="." to="." method="_on_Synthesis_table_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_Synthesis_table_body_shape_exited"]
